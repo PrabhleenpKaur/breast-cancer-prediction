@@ -3,3 +3,7 @@ __pycache__/
 *.h5
 .venv/
 tmp/
+data/
+model/
+outputs/
+__pycache__/
