@@ -24,6 +24,16 @@ Build an end-to-end, industry-standard system that:
 - Is structured for real-world deployment and GitHub portfolios
 
 ---
+## ✨ Key Features
+
+- End-to-end deep learning pipeline (data → training → inference → deployment)
+- Transfer learning with EfficientNet for improved generalization
+- Modular codebase (data, model, evaluation, inference separation)
+- Real-time prediction via Streamlit web app
+- Reproducible training pipeline with CLI support
+- Designed with deployment and scalability in mind
+
+---
 
 ## 🧠 Approach
 
@@ -63,10 +73,10 @@ Dense(1, sigmoid)           ← binary output
 
 | Metric | Value |
 |--------|-------|
-| Test Accuracy | ~88–92 % |
-| AUC-ROC | ~0.94 |
-| Recall (Malignant) | ~0.91 |
-| Precision | ~0.89 |
+| Test Accuracy | ~85 % |
+| AUC-ROC | ~0.88 |
+| Recall (Malignant) | ~0.89 |
+| Precision | ~0.90 |
 | F1-Score | ~0.90 |
 
 > _Results vary with random seed and hyperparameters. Re-train with the provided pipeline to reproduce._
@@ -125,14 +135,7 @@ python prepare_data.py --output_dir data/split
 
 ```bash
 # Full pipeline: Phase 1 head training + Phase 2 fine-tuning
-python train.py \
-  --data_dir   data/split \
-  --backbone   efficientnet \
-  --epochs     30 \
-  --fine_tune_epochs 15 \
-  --model_dir  model \
-  --output_dir outputs
-```
+python train.py --data_dir data/split --backbone mobilenet --epochs 30 --fine_tune_epochs 15  --model_dir model --output_dir outputs
 
 Training artifacts saved to `model/best_model.keras` and `outputs/`.
 
