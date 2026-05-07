@@ -16,8 +16,8 @@ Dataset: BreaKHis / BreastMNIST or local directory in format:
 import os
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+from keras.preprocessing.image import ImageDataGenerator
+from keras.applications.mobilenet_v2 import preprocess_input
 from sklearn.model_selection import train_test_split
 import shutil
 import pathlib

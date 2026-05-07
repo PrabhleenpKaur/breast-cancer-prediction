@@ -6,7 +6,7 @@ Supports: EfficientNetB0 (default), MobileNetV2, ResNet50.
 """
 
 import tensorflow as tf
-from tensorflow.keras import layers, models, regularizers
+from keras import layers, models, regularizers
 from tensorflow.keras.applications import EfficientNetB0, MobileNetV2, ResNet50
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 
@@ -44,7 +44,7 @@ def build_model(backbone: str = "mobilenet",
     # ── Classification head ──────────────────────────────────────────────────
     inputs = tf.keras.Input(shape=IMG_SHAPE)
     x = preprocess_input(inputs)
-    x = base_model(inputs, training=False)
+    x = base_model(x, training=False)
     x = layers.GlobalAveragePooling2D()(x)
     x = layers.BatchNormalization()(x)
     x = layers.Dense(
